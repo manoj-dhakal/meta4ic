@@ -2,6 +2,16 @@ import nltk
 from nltk.classify import MaxentClassifier
 import csv
 import os
+from collections import Counter
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import numpy as np
+
+# Ensure you have these NLTK resources
+nltk.download('vader_lexicon')
+nltk.download('stopwords')
+nltk.download('punkt')
 
 def load_data(file_path):
     annotated_data = []
@@ -14,11 +24,11 @@ def load_data(file_path):
                     continue  # Skip empty lines between sentences
                 
                 parts = line.split('\t')
-                if len(parts) == 4:
-                    word, lemma, pos, label = parts
-                    annotated_data.append((word, lemma, pos, label))
+                if len(parts) == 5:  # Adjusted to account for the extra sentence column
+                    word, lemma, pos, sentence, label = parts
+                    annotated_data.append((word, lemma, pos, sentence, label))
                 else:
-                    print(f"Warning: Line {line_num} does not have 4 parts: {line}")
+                    print(f"Warning: Line {line_num} does not have 5 parts: {line}")
         
         print(f"Loaded {len(annotated_data)} samples from {file_path}")
     except Exception as e:
@@ -26,14 +36,18 @@ def load_data(file_path):
     
     return annotated_data
 
-def extract_features(index, tokens):
-    word, lemma, pos, _ = tokens[index]
+def extract_features(index, tokens, word_frequencies, sentiment_analyzer):
+    word, lemma, pos, sentence, _ = tokens[index]  # Account for the sentence column
     features = {
         'word': word,
         'lemma': lemma,
         'pos': pos,
+        'sentence': sentence,  # Adding the sentence as a feature
         'is_capitalized': word[0].isupper(),
         'word_length': len(word),
+        'is_stopword': word in stopwords.words('english'),
+        'word_frequency': word_frequencies.get(word.lower(), 0),  # Word frequency in the corpus
+        'sentiment_score': sentiment_analyzer.polarity_scores(word)['compound'],  # Sentiment score of the word
     }
     
     if index > 0:
@@ -53,15 +67,31 @@ def extract_features(index, tokens):
     features['bigram'] = f"{features['prev_word']} {word}"
     if index < len(tokens) - 1:
         features['trigram'] = f"{features['prev_word']} {word} {features['next_word']}"
+    
+    # Add window-based features
+    if index > 1:
+        features['prev_word2'] = tokens[index - 2][0]
+    else:
+        features['prev_word2'] = 'START2'
+
+    if index < len(tokens) - 2:
+        features['next_word2'] = tokens[index + 2][0]
+    else:
+        features['next_word2'] = 'END2'
+    
     return features
 
-def prepare_data(annotated_data):
+def prepare_data(annotated_data, word_frequencies, sentiment_analyzer):
     prepared_data = []
     for i in range(len(annotated_data)):
-        features = extract_features(i, annotated_data)
-        label = annotated_data[i][3]  # Is_Metaphor label
+        features = extract_features(i, annotated_data, word_frequencies, sentiment_analyzer)
+        label = annotated_data[i][4]  # Updated to account for the new position of the label
         prepared_data.append((features, label))
     return prepared_data
+
+def get_word_frequencies(data):
+    word_freq = Counter(word.lower() for word, _, _, _, _ in data)  # Adjusted for the extra column
+    return word_freq
 
 def train_maxent_classifier(training_data):
     if not training_data:
@@ -76,14 +106,13 @@ def train_maxent_classifier(training_data):
         raise ValueError("No valid labels found in training data")
     
     try:
-        model = MaxentClassifier.train(training_data, algorithm='iis', max_iter=1)
+        model = MaxentClassifier.train(training_data, algorithm='iis', max_iter=10)
         return model
     except Exception as e:
         print(f"Error during training: {e}")
         raise
-import csv
 
-def predict_and_save(model, input_file, output_file):
+def predict_and_save(model, input_file, output_file, sentiment_analyzer, word_frequencies):
     print(f"Reading from {input_file}")
     print(f"Writing to {output_file}")
     predictions_made = 0
@@ -94,38 +123,30 @@ def predict_and_save(model, input_file, output_file):
             writer = csv.writer(outfile, delimiter='\t')
 
             for line_num, row in enumerate(reader, 1):
-                # Check for blank line
                 if not row:
                     writer.writerow([])  # Write a blank line to keep the same line structure
                     continue
 
-                # Ensure the row has at least word, lemma, and POS columns
                 if len(row) < 3:
                     print(f"Warning: Skipping incomplete line {line_num}")
                     writer.writerow(row)  # Write the original incomplete line as-is
                     continue
 
-                # Unpack the fields for the token
-                word, lemma, pos = row[:3]
-                
-                # Create a temporary tokens list for context-aware feature extraction
-                token_data = [(word, lemma, pos, None)]
-                features = extract_features(0, token_data)  # index 0 since there's only one token
-
-                # Make prediction using the model
+                word, lemma, pos, sentence = row[:4]  # Account for the sentence column
+                token_data = [(word, lemma, pos, sentence, None)]
+                features = extract_features(0, token_data, word_frequencies, sentiment_analyzer)  # index 0 since there's only one token
                 prediction = model.classify(features)
 
-                # Append the prediction as the new label column in the row
-                writer.writerow([word, lemma, pos, prediction])
+                writer.writerow([word, lemma, pos, sentence, prediction])  # Include the sentence column in the output
                 predictions_made += 1
 
-                # Print first few predictions for debugging
                 if predictions_made <= 5:
                     print(f"Sample prediction {predictions_made}: {row} -> {prediction}")
 
         print(f"Total predictions made: {predictions_made}")
     except Exception as e:
         print(f"Error during prediction: {e}")
+
 def peek_file(file_path, num_lines=5):
     print(f"First {num_lines} lines of {file_path}:")
     try:
@@ -157,7 +178,10 @@ if __name__ == "__main__":
         
         if train_data:
             print(f"\nTotal samples in training data: {len(train_data)}")
-            training_data = prepare_data(train_data)
+            word_frequencies = get_word_frequencies(train_data)
+            sentiment_analyzer = SentimentIntensityAnalyzer()
+
+            training_data = prepare_data(train_data, word_frequencies, sentiment_analyzer)
             print(f"Prepared training samples: {len(training_data)}")
             
             print("\nSample training data:")
@@ -173,7 +197,7 @@ if __name__ == "__main__":
 
                 print(f"\nPredicting on {dev_file}...")
                 if os.path.exists(dev_file):
-                    predict_and_save(model, dev_file, output_file)
+                    predict_and_save(model, dev_file, output_file, sentiment_analyzer, word_frequencies)
                     # Add this after the predict_and_save function call
                     if os.path.exists(output_file):
                         file_size = os.path.getsize(output_file)
