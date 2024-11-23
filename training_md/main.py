@@ -88,25 +88,49 @@ def get_word_frequencies(data):
     word_freq = Counter(word.lower() for word, _, _, _, _ in data)  # Adjusted for the extra column
     return word_freq
 
-def train_maxent_classifier(training_data):
+def compute_class_weights(data, weight_factor=0.5):
+    """
+    Computes class weights for handling class imbalance with an adjustable weight factor.
+    :param data: List of annotated data with labels.
+    :param weight_factor: Factor to scale the computed class weights (default is 1.0).
+    :return: Dictionary of class weights.
+    """
+    # Count the occurrences of each label
+    label_counts = Counter(label for _,_,_,_, label in data)
+    total_count = len(data)
+
+    # Calculate weights as the inverse of class frequency
+    raw_class_weights = {label: total_count / count for label, count in label_counts.items()}
+
+    # Apply the weight factor to adjust the impact of class weights
+    class_weights = {label: weight ** weight_factor for label, weight in raw_class_weights.items()}
+    
+    print(f"Raw class weights (without factor): {raw_class_weights}")
+    print(f"Adjusted class weights (with factor {weight_factor}): {class_weights}")
+    
+    return class_weights
+def train_maxent_classifier(training_data, class_weights):
     if not training_data:
         raise ValueError("Training data is empty")
     
     print(f"Number of training samples: {len(training_data)}")
-    
     labels = set(label for _, label in training_data)
     print(f"Unique labels in training data: {labels}")
-    
-    if not labels:
-        raise ValueError("No valid labels found in training data")
-    
+
+    # Apply class weights by duplicating samples
+    weighted_data = []
+    for features, label in training_data:
+        weight = int(class_weights[label])
+        weighted_data.extend([(features, label)] * weight)
+
+    print(f"Weighted training samples: {len(weighted_data)}")
+
     try:
-        model = MaxentClassifier.train(training_data, algorithm='iis', max_iter=10)
+        model = MaxentClassifier.train(weighted_data, algorithm='iis', max_iter=10)
         return model
     except Exception as e:
         print(f"Error during training: {e}")
         raise
-
 def predict_and_save(model, input_file, output_file, sentiment_analyzer, word_frequencies):
     print(f"Reading from {input_file}")
     print(f"Writing to {output_file}")
@@ -179,15 +203,12 @@ if __name__ == "__main__":
             training_data = prepare_data(train_data, word_frequencies, sentiment_analyzer)
             print(f"Prepared training samples: {len(training_data)}")
             
-            print("\nSample training data:")
-            for i, (features, label) in enumerate(training_data[:5]):
-                print(f"Sample {i+1}:")
-                print(f"  Features: {features}")
-                print(f"  Label: {label}")
+            # Compute class weights
+            class_weights = compute_class_weights(train_data)
 
-            print("\nTraining the model...")
+            print("\nTraining the model with class weights...")
             try:
-                model = train_maxent_classifier(training_data)
+                model = train_maxent_classifier(training_data, class_weights)
                 print("Model training completed successfully")
 
                 print(f"\nPredicting on {dev_file}...")
