@@ -11,29 +11,38 @@ namespaces = {'tei': 'http://www.tei-c.org/ns/1.0', 'vici': 'http://www.tei-c.or
 # Extract relevant data
 data = []
 for sentence in tree.xpath('//tei:s', namespaces=namespaces):
-    # Process each word
+    
+    # Combine all words in a sentence into a single string with space separation
+    sentence_text = ' '.join(sentence.xpath('.//tei:w//text()', namespaces=namespaces)).strip()
+    
+    # Ensure no newline or extra space in the sentence text
+    sentence_text = ' '.join(sentence_text.split())
+    
+    # Process each word in the sentence and add the full sentence to each word
     for word in sentence.xpath('.//tei:w', namespaces=namespaces):
         word_text = word.xpath('string()').strip()
         lemma = word.get('lemma')
         pos = word.get('type')
         is_metaphor = bool(word.xpath('.//tei:seg[@function="mrw"]', namespaces=namespaces))
         
+        # Append word details along with the complete sentence
         data.append({
             'Word': word_text,
             'Lemma': lemma,
             'POS': pos,
-            'Is_Metaphor': is_metaphor
+            'Is_Metaphor': is_metaphor,
+            'Sentence': sentence_text  # Attach the complete sentence to each word
         })
-
+    
     # Add a blank line entry after each sentence
-    data.append({'Word': None, 'Lemma': None, 'POS': None, 'Is_Metaphor': None})
+    data.append({'Word': None, 'Lemma': None, 'POS': None, 'Is_Metaphor': None, 'Sentence': None})
 
-# Create DataFrame without 'Metaphor_Type' and 'Sentence' columns
+# Create DataFrame
 df = pd.DataFrame(data)
 
 # Write to file with tab-separated values
 with open("master_data.pos", "w") as f:
-    # Write header
+    # Write header (if needed)
     f.write("\n")
     
     for _, row in df.iterrows():
@@ -41,5 +50,7 @@ with open("master_data.pos", "w") as f:
         if pd.isna(row['Word']):
             f.write("\n")
         else:
-            # Write the row data with tab separation
-            f.write(f"{row['Word']}\t{row['Lemma']}\t{row['POS']}\t{row['Is_Metaphor']}\n")
+            # Write the row data with tab separation, ensuring the entire sentence is on the same line
+            f.write(f"{row['Word']}\t{row['Lemma']}\t{row['POS']}\t{row['Sentence']}\t{row['Is_Metaphor']}\n")
+
+print("File 'master_data.pos' generated successfully.")
