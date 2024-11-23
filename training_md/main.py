@@ -43,11 +43,6 @@ def extract_features(index, tokens, word_frequencies, sentiment_analyzer):
         'lemma': lemma,
         'pos': pos,
         'sentence': sentence,  # Adding the sentence as a feature
-        'is_capitalized': word[0].isupper(),
-        'word_length': len(word),
-        'is_stopword': word in stopwords.words('english'),
-        'word_frequency': word_frequencies.get(word.lower(), 0),  # Word frequency in the corpus
-        'sentiment_score': sentiment_analyzer.polarity_scores(word)['compound'],  # Sentiment score of the word
     }
     
     if index > 0:
