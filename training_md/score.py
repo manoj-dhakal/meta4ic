@@ -17,8 +17,8 @@ def score_predictions(annotated_file, gold_file):
     total = len(gold_lines)
     
     for a_line, g_line in zip(annotated_lines, gold_lines):
-        a_label = a_line.strip().split(',')[-1].lower() == 'true'
-        g_label = g_line.strip().split(',')[-1].lower() == 'true'
+        a_label = a_line.strip().split('\t')[-1].lower() == 'true'
+        g_label = g_line.strip().split('\t')[-1].lower() == 'true'
         
         if a_label and g_label:
             true_positives += 1
