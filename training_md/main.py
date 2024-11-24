@@ -88,7 +88,8 @@ def get_word_frequencies(data):
     word_freq = Counter(word.lower() for word, _, _, _, _ in data)  # Adjusted for the extra column
     return word_freq
 
-def compute_class_weights(data, weight_factor=0.5):
+def compute_class_weights(data, weight_factor=0):
+    print("Weight factor:", weight_factor)
     """
     Computes class weights for handling class imbalance with an adjustable weight factor.
     :param data: List of annotated data with labels.
