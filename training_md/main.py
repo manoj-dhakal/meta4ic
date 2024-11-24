@@ -117,16 +117,17 @@ def train_maxent_classifier(training_data, class_weights):
     labels = set(label for _, label in training_data)
     print(f"Unique labels in training data: {labels}")
 
-    # Apply class weights by duplicating samples
-    weighted_data = []
+    # Integrate weights into features
+    weighted_training_data = []
     for features, label in training_data:
-        weight = int(class_weights[label])
-        weighted_data.extend([(features, label)] * weight)
+        weighted_features = features.copy()  # Copy original features
+        weighted_features["class_weight"] = class_weights[label]  # Add weight as a feature
+        weighted_training_data.append((weighted_features, label))
 
-    print(f"Weighted training samples: {len(weighted_data)}")
+    print(f"Weighted training samples: {len(weighted_training_data)}")
 
     try:
-        model = MaxentClassifier.train(weighted_data, algorithm='iis', max_iter=10)
+        model = MaxentClassifier.train(weighted_training_data, algorithm='iis', max_iter=10)
         return model
     except Exception as e:
         print(f"Error during training: {e}")
