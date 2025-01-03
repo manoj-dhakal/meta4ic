@@ -2,7 +2,7 @@
 
 Meta4ic is a machine learning-based system developed to annotate metaphors in textual data. This project offers an innovative approach to identifying and analyzing metaphorical expressions, assisting researchers and linguists in better understanding the subtleties of language.
 
-This repository accompanies the research paper **["Meta4ic: A System for Metaphor Annotation in Text"](#)**, where you can find comprehensive details about the system's design, methodology, and evaluation.
+This repository accompanies the research paper **["Meta4ic: A System for Metaphor Annotation in Text"](#)** (available under request), where you can find comprehensive details about the system's design, methodology, and evaluation.
 
 ---
 
