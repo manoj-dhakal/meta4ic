@@ -1,0 +1,63 @@
+The	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+city	city	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+was	be	VBD	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+a	a	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+jungle	jungle	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+,	,	PUN	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+alive	alive	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	True
+with	with	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	True
+the	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+constant	constant	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+roar	roar	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+of	of	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+traffic	traffic	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+and	and	CC0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+the	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+heartbeat	heartbeat	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+of	of	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+its	its	DPS	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+bustling	bustling	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+crowds	crowd	NN2	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+.	.	PUN	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.	False
+
+Time	time	NN1	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+was	be	VBD	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+a	a	AT0	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+thief	thief	NN1	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+,	,	PUN	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+quietly	quietly	ADV	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+stealing	steal	VBG	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+moments	moment	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+while	while	CSN	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+people	people	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+raced	race	VBD	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+against	against	PRP	Time was a thief, quietly stealing moments while people raced against its invisible hands.	True
+its	its	DPS	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+invisible	invisible	AJ0	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+hands	hand	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+.	.	PUN	Time was a thief, quietly stealing moments while people raced against its invisible hands.	False
+
+The	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+towering	tower	VVG	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	True
+skyscrapers	skyscraper	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+were	be	VBD	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+giants	giant	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	True
+that	that	CJT	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+loomed	loom	VBD	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+over	over	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	True
+the	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+streets	street	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+,	,	PUN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+their	their	DPS	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+glass	glass	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+facades	facade	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+glistening	glisten	VVG	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+like	like	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+polished	polish	VVN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	True
+mirrors	mirror	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+under	under	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	True
+the	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+morning	morning	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+sun	sun	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+.	.	PUN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.	False
+

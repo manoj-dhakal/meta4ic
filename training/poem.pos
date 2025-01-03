@@ -1,0 +1,62 @@
+The	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+city	city	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+was	be	VBD	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+a	a	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+jungle	jungle	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+,	,	PUN	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+alive	alive	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+with	with	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+the	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+constant	constant	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+roar	roar	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+of	of	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+traffic	traffic	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+and	and	CC0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+the	the	AT0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+heartbeat	heartbeat	NN1	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+of	of	PRP	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+its	its	DPS	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+bustling	bustling	AJ0	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+crowds	crowd	NN2	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+.	.	PUN	The city was a jungle, alive with the constant roar of traffic and the heartbeat of its bustling crowds.
+
+Time	time	NN1	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+was	be	VBD	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+a	a	AT0	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+thief	thief	NN1	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+,	,	PUN	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+quietly	quietly	ADV	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+stealing	steal	VBG	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+moments	moment	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+while	while	CSN	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+people	people	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+raced	race	VBD	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+against	against	PRP	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+its	its	DPS	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+invisible	invisible	AJ0	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+hands	hand	NN2	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+.	.	PUN	Time was a thief, quietly stealing moments while people raced against its invisible hands.
+
+The	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+towering	tower	VVG	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+skyscrapers	skyscraper	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+were	be	VBD	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+giants	giant	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+that	that	CJT	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+loomed	loom	VBD	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+over	over	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+the	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+streets	street	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+,	,	PUN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+their	their	DPS	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+glass	glass	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+facades	facade	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+glistening	glisten	VVG	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+like	like	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+polished	polish	VVN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+mirrors	mirror	NN2	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+under	under	PRP	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+the	the	AT0	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+morning	morning	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+sun	sun	NN1	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
+.	.	PUN	The towering skyscrapers were giants that loomed over the streets, their glass facades glistening like polished mirrors under the morning sun.
