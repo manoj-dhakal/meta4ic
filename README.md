@@ -23,6 +23,12 @@ This repository accompanies the research paper **["Meta4ic: A System for Metapho
 _This study explores an alternative approach to metaphor detection using interpretable machine learning models, challenging the prevailing reliance on complex neural network architectures. By leveraging the VU Amsterdam Metaphor Corpus (VUMAC) and implementing the MIPVU methodology, we demonstrate that simpler, transparent models can achieve competitive performance when coupled with effective data balancing techniques and careful feature engineering. Our experiments with logistic regression, maximum entropy (MaxEnt), and XGBoost models on a highly imbalanced dataset reveal significant improvements through targeted balancing strategies. Our findings suggest that interpretable models, when properly optimized, can effectively identify metaphorical language while maintaining transparency in their decision-making process - a crucial advantage for cognitive and linguistic research applications. This work contributes to the ongoing discussion about balancing model complexity with interpretability in computational linguistics, offering insights into feature engineering and data balancing strategies for metaphor detection.
 For more details, please refer to the linked research paper._
 
+## Results
+Following table shows sneak peek into the results we achieved in this project: 
+![image](https://github.com/user-attachments/assets/d4c23b47-9a95-4ebf-ab4d-4e851a2303ed)
+
+For more details, please refer to the linked research paper, or request access if you do not have access to it.
+
 ---
 
 © 2025 Manoj Dhakal. All rights reserved.
