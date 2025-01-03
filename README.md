@@ -13,7 +13,7 @@ This repository accompanies the research paper **["Meta4ic: A System for Metapho
 
 ## Reproduction
 - To reproduce the results run the files inside the training folder in this order:
-  1) parser.py [parses the training data from VUAMC.xml]
+  1) parser.py [parses the training data from VUMAC.xml]
   2) balancer.py [balances the training data]
   3) one of the main files for training
   4) score.py for the trained files
