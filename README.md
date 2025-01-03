@@ -17,8 +17,11 @@ This repository accompanies the research paper **["Meta4ic: A System for Metapho
   2) balancer.py [balances the training data]
   3) one of the main files for training
   4) score.py for the trained files
-     
-For more details, please refer to the linked research paper.
+
+## Abstract
+
+_This study explores an alternative approach to metaphor detection using interpretable machine learning models, challenging the prevailing reliance on complex neural network architectures. By leveraging the VU Amsterdam Metaphor Corpus (VUMAC) and implementing the MIPVU methodology, we demonstrate that simpler, transparent models can achieve competitive performance when coupled with effective data balancing techniques and careful feature engineering. Our experiments with logistic regression, maximum entropy (MaxEnt), and XGBoost models on a highly imbalanced dataset reveal significant improvements through targeted balancing strategies. Our findings suggest that interpretable models, when properly optimized, can effectively identify metaphorical language while maintaining transparency in their decision-making process - a crucial advantage for cognitive and linguistic research applications. This work contributes to the ongoing discussion about balancing model complexity with interpretability in computational linguistics, offering insights into feature engineering and data balancing strategies for metaphor detection.
+For more details, please refer to the linked research paper._
 
 ---
 
